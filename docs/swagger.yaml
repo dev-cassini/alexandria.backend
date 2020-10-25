@@ -1,0 +1,46 @@
+definitions:
+  models.Book:
+    properties:
+      authors:
+        items:
+          type: string
+        type: array
+      description:
+        type: string
+      id:
+        type: string
+      imageURL:
+        type: string
+      isbn:
+        type: string
+      pageCount:
+        type: integer
+      publishedDate:
+        type: string
+      publisher:
+        type: string
+      subtitle:
+        type: string
+      title:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /books/{isbn}:
+    get:
+      parameters:
+      - description: ISBN
+        in: path
+        name: isbn
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Book'
+      summary: Retrieves book based on ISBN
+swagger: "2.0"

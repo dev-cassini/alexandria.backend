@@ -1,0 +1,73 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/books/{isbn}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves book based on ISBN",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ISBN",
+                        "name": "isbn",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Book"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Book": {
+            "type": "object",
+            "properties": {
+                "authors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "imageURL": {
+                    "type": "string"
+                },
+                "isbn": {
+                    "type": "string"
+                },
+                "pageCount": {
+                    "type": "integer"
+                },
+                "publishedDate": {
+                    "type": "string"
+                },
+                "publisher": {
+                    "type": "string"
+                },
+                "subtitle": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
